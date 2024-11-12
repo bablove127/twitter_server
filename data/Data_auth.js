@@ -1,0 +1,26 @@
+let users = [
+    {
+        id:'1',
+        username:'apple',
+        password:'1111',
+        name:'김사과',
+        email:'apple@apple.com',
+        url:'https://naver.com'
+    },
+    {
+        id:'2',
+        username:'banana',
+        password:'2222',
+        name:'반하나',
+        email:'banana@banana.com',
+        url:'https://naver.com'
+    },
+    {
+        id:'3',
+        username:'orange',
+        password:'3333',
+        name:'오렌지',
+        email:'apple@apple.com',
+        url:'https://naver.com'
+    }
+]
