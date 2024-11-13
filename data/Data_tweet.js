@@ -62,7 +62,7 @@ export async function update(id, text){
     }
     return tweet
 }
-
+ 
 // 트윗을 삭제
 export async function remove(id){
     tweets = tweets.filter((tweet) => tweet.id !== id)
