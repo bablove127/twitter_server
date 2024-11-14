@@ -1,24 +1,21 @@
 let tweets = [
     {
         id:'1',
-        name:'김사과',
-        username:'apple',
+        //김사과
+        userId: '1',
         text:'안녕하세요',
         createdAt: Date.now().toString(),
-        url:'https://img.freepik.com/premium-photo/young-asian-man-her-clean-face-with-fresh-healthy-skin-ai-generated_145713-6656.jpg'
     },
     {
         id:'2',
-        name:'반하나',
-        username:'banana',
+        //반하나
+        userId:'2',
         text:'반갑습니다',
         createdAt: Date.now().toString(),
-        url:'https://img.freepik.com/premium-photo/young-asian-man-her-clean-face-with-fresh-healthy-skin-ai-generated_145713-6656.jpg'
     },
     {
         id:'3',
-        name:'오렌지',
-        username:'orange',
+        userId:'1',
         text:'첫 트윗!',
         createdAt: Date.now().toString(),
         url:'https://img.freepik.com/premium-photo/young-asian-man-her-clean-face-with-fresh-healthy-skin-ai-generated_145713-6656.jpg'

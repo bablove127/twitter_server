@@ -28,10 +28,11 @@ let users = [
 export async function createUser(username, password, name, email){
     const user = {
         id:'4',
-        username:username,
-        password:password,
-        name:name,
-        email:email,
+        username,
+        password,
+        //name:name, 동일하게 사용
+        name,
+        email,
         url:'https://png.pngtree.com/thumb_back/fh260/background/20230611/pngtree-woman-s-face-with-long-brown-eyes-image_2888808.jpg'
     }
     users = [user, ...users]
@@ -41,4 +42,8 @@ export async function createUser(username, password, name, email){
 export async function findByUsername(username){
     const user = users.find((user) => user.username === username)
     return user
+}
+
+export async function findById(id) {
+    return users.find((user)=> user.id === id)
 }
