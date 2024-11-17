@@ -3,6 +3,7 @@ import tweetsRouter from './router/router_tweets.js'
 import authRouter from './router/router_auth.js'
 import {config} from './Config.js'
 import { initSocket } from './Connection/socket.js'
+import { db } from './db/database.js'
 
 
 const app = express()
@@ -18,9 +19,10 @@ app.use((req, res, next) => {
 })
 
 
+// DB연결 확인
+// db.getConnection().then((connection) => console.log(connection))
 const server = app.listen(config.host.port)
 initSocket(server)
-
 
 
 

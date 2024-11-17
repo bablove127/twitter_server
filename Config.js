@@ -17,11 +17,21 @@ export const config = {
     jwt: {
         secretKey: required('JWT_SECRET'),
         expiresInSec: parseInt(required('JWT_EXPIRES_SEC', 259200))
-    }, 
-    bcrypt : {
-        saltRounds: parseInt(required(`BCRYPT_SALT_ROUNDS`, 10))
     },
+
+    bcrypt: {
+        saltRounds: parseInt(required('BCRYPT_SALT_ROUNDS', 10))
+    },
+
     host: {
         port: parseInt(required('HOST_PORT', 8080))
+    },
+    
+    db: {
+        host: required('DB_HOST'),
+        user: required('DB_USER'),
+        password: required('DB_PASSWORD'),
+        database: required('DB_DATABASE'),
+        port: required('DB_PORT')
     }
 }
