@@ -1,30 +1,27 @@
 import jwt from 'jsonwebtoken'
-import * as authRepository from '../data/Data_auth.js'
-import { config } from '../Config.js'
+import * as authRepository from '../data/auth.js'
+import { config } from '../config.js'
 
-const AUTH_ERROR = {message: '인증에러'}
+const AUTH_ERROR = { message: '인증에러'} 
 
 export const isAuth = async(req, res, next) => {
     const authHeader = req.get('Authorization')
     console.log(authHeader)
-
-    //Bearer에 스페이스를 해줘야한다 split에 스페이스를 해줬기 때문에
     if(!(authHeader && authHeader.startsWith('Bearer '))){
         console.log('헤더 에러')
         return res.status(401).json(AUTH_ERROR)
     }
     const token = authHeader.split(' ')[1]
 
-
     jwt.verify(
         token, config.jwt.secretKey, async(error, decoded) => {
-            if(error){
+            if(error) {
                 console.log('토큰 에러')
                 return res.status(401).json(AUTH_ERROR)
             }
             const user = await authRepository.findById(decoded.id)
-            if(!user){
-                console.log('아이디 없음')
+            if (!user){
+                console.log('존재하지 않는 아이디')
                 return res.status(401).json(AUTH_ERROR)
             }
             req.userId = user.id
@@ -32,4 +29,3 @@ export const isAuth = async(req, res, next) => {
         }
     )
 }
-

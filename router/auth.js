@@ -1,15 +1,14 @@
-//회원관리
+// 회원 관련 파일
 import express from 'express'
-import * as authController from '../controller/Controller_auth.js'
+import * as authController from '../controller/auth.js'
 import { body } from 'express-validator'
-import { validate } from '../Middleware/Validate.js'
-import { isAuth } from '../Middleware/Middleware_auth.js'
+import { validate } from '../middleware/validator.js'
+import { isAuth } from '../middleware/auth.js'
 
 const router = express.Router()
 
-
 const validateLogin = [
-    body('username').trim().isLength({min:4}).withMessage('최소 4자이상 입력').matches(/^[a-zA-Z0-9]*$/).withMessage('특수문자 사용불가'),
+    body('username').trim().isLength({min:4}).withMessage('최소 4자이상 입력').matches(/^[A-Za-z0-9]*$/).withMessage('특수문자 사용불가'),
     body('password').trim().isLength({min:8}).withMessage('최소 8자이상 입력'),
     validate
 ]
@@ -22,14 +21,14 @@ const validateSignup = [
 ]
 
 
-//회원가입
+// signup
 router.post('/signup', validateSignup, authController.signup)
 
-//로그인
+
+// login
 router.post('/login', validateLogin, authController.login)
 
-// 로그인 유지
+// login-stay
 router.get('/me', isAuth, authController.me)
-
 
 export default router
